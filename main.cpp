@@ -5,7 +5,6 @@ void About(){
     puts("   [项目作者] MaxLHy0424");
     puts("   [软件版本] v5.0.0-dev2");
     puts("   [项目仓库] https://github.com/MaxLHy0424/CRCSN\n");
-    printf("   [系统内核] NT %.1lf\n\n",KernalVersion()/10.0);
     puts("   (C) 2023- MaxLHy0424, 保留所有权利.\n");
     puts("========================================\n");
     puts("按任意键返回.\n");
@@ -32,7 +31,7 @@ BEGIN:
     printf("已%s用 [高级破解], ",((IsUserAnAdmin())?("启"):("禁")));
     if(Confirm()==true){
         system("Cls");
-        puts("| ~ / 破解 > 执行操作 |\n");
+        puts("| ~ / 破解 / 执行操作 |\n");
         switch(Code[0]){
             case '1':{
                 system("TaskKill /F /T /IM StudentMain.exe");
@@ -132,7 +131,7 @@ BEGIN:
     }
     if(Confirm()==true){
         system("Cls");
-        puts("| ~ / 恢复 > 执行操作 |\n");
+        puts("| ~ / 恢复 / 执行操作 |\n");
         switch(Code[0]){
             case '1':{
                 system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\StudentMain.exe\" /F");
@@ -208,12 +207,12 @@ BEGIN:
         case '0':{
             return;
         }case '/':{
-            puts("| ~ / 工具箱 > 命令提示符 |\n");
+            puts("| ~ / 工具箱 / 命令提示符 |\n");
             puts("执行 \"Exit\" 退出.\n");
             system("Cmd");
             break;
         }case '1':{
-            puts("| ~ / 工具箱 > 系统修复 |\n");
+            puts("| ~ / 工具箱 / 系统修复 |\n");
             if(Confirm()==false){
                 system("Cls");
                 goto BEGIN;
@@ -224,10 +223,9 @@ BEGIN:
             system("SFC /ScanNow");
             break;
         }case '2':{
-            puts("| ~ / 工具箱 > 垃圾清理 |\n");
+            puts("| ~ / 工具箱 / 垃圾清理 |\n");
             if(Confirm()==false){
-                system("Cls");
-                goto BEGIN;
+                goto END;
             }
             system("Del /F /S /Q %TEMP%");
             if(KernalVersion()>=100UL){
@@ -235,14 +233,13 @@ BEGIN:
             }
             break;
         }case '3':{
-            puts("| ~ / 工具箱 > 高级启动 |\n");
+            puts("| ~ / 工具箱 / 高级启动 |\n");
             if(KernalVersion()<62UL){
-                puts("仅支持 NT 6.2+.\n");
+                puts("仅支持 Windows 8+.\n");
                 break;
             }
             if(Confirm()==false){
-                system("Cls");
-                goto BEGIN;
+                goto END;
             }
             puts("\n");
             system("Pause");
@@ -253,6 +250,7 @@ BEGIN:
     puts("\n========================================\n");
     puts("按任意键返回.\n");
     system("Pause");
+END:
     system("Cls");
     goto BEGIN;
 }
