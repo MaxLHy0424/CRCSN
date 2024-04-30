@@ -2,8 +2,8 @@
 void About(){
     puts("| 关于 |\n");
     puts("   [软件名称] Computer Room Controlling Software Nemesis");
-    puts("   [项目作者] MaxLHy0424 (Mingxu Ye)");
-    puts("   [软件版本] v4.7.4");
+    puts("   [项目作者] MaxLHy0424");
+    puts("   [软件版本] v5.0.0");
     puts("   [项目仓库] https://github.com/MaxLHy0424/CRCSN\n");
     printf("   [系统内核] NT %.1lf\n\n",KernalVersion()/10.0);
     puts("   (C) 2023- MaxLHy0424, 保留所有权利.\n");
@@ -48,6 +48,7 @@ void Configurator(bool rld){
     return;
 }
 void Cracker(){
+BEGIN:
     puts("| 破解 |\n");
     puts("   [0] 返回");
     puts("   [1] 极域电子教室");
@@ -137,9 +138,11 @@ void Cracker(){
         puts("按任意键返回.\n");
         system("Pause");
     }
-    return;
+    system("Cls");
+    goto BEGIN;
 }
 void Recoverer(){
+BEGIN:
     puts("| 恢复 |\n");
     if(!IsUserAnAdmin()){
         puts("基本会话下不可用.\n");
@@ -209,7 +212,8 @@ void Recoverer(){
         puts("按任意键返回.\n");
         system("Pause");
     }
-    return;
+    system("Cls");
+    goto BEGIN;
 }
 void Toolkit(){
 BEGIN:
