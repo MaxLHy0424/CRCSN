@@ -7,8 +7,8 @@
             "request":"launch",
             "program":"${fileDirname}\\bin\\${fileBasenameNoExtension}.exe",
             "args":[
-                "-color=09",
-                "-beta"
+                "-clr=09",
+                "-dev"
             ],
             "stopAtEntry":false,
             "cwd":"${fileDirname}",
