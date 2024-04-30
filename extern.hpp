@@ -4,7 +4,6 @@
 #include<ShlObj.h>
 #include<thread>
 char Code[3]{};
-std::string CfgDt[3]{"","NUL",""};
 DWORD KernalVersion(){
     DWORD version{GetVersion()};
     DWORD major{(DWORD)(LOBYTE(LOWORD(version)))},minor{(DWORD)(HIBYTE(LOWORD(version)))};

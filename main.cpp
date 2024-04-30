@@ -12,41 +12,6 @@ void About(){
     system("Pause");
     return;
 }
-void Configurator(bool rld){
-    if(rld){
-        puts("| 重载配置 |\n");
-    }
-    std::ifstream ifs("cfg.ini",std::ios::in);
-    if(!ifs.is_open()){
-        ifs.close();
-        puts("无法读取 cfg.ini.\n");
-        puts("========================================\n");
-        puts("按任意键继续.\n");
-        system("Pause");
-        system("Cls");
-        return;
-    }
-    for(unsigned short i{};i<3U;++i){
-        getline(ifs,CfgDt[i]);
-    }
-    ifs.close();
-    CfgDt[0]="Color "+CfgDt[0];
-    system(CfgDt[0].c_str());
-    static bool fsState{false};
-    if((CfgDt[2]=="1")&&(fsState==false)){
-        fsState=true;
-        std::thread(ForceShow).detach();
-    }else if(CfgDt[2]!="1"){
-        fsState=false;
-    }
-    if(rld){
-        puts("重载完毕.\n");
-        puts("========================================\n");
-        puts("按任意键返回.\n");
-        system("Pause");
-    }
-    return;
-}
 void Cracker(){
 BEGIN:
     puts("| 破解 |\n");
@@ -298,21 +263,16 @@ int main(){
         system("Title [基本会话] CRCSN");
     }
     system("Color 9");
-    Configurator(false);
 BEGIN:
     puts("| 主页 |\n");
-    if(CfgDt[1]!="NUL"){
-        printf("%s\n\n",CfgDt[1].c_str());
-    }
     puts("   [?] 关于");
-    puts("   [0] 重载配置");
     puts("   [1] 破解");
     puts("   [2] 恢复");
     puts("   [3] 工具箱\n");
     printf("请输入: ");
     for(;;){
         scanf("%s",&Code[0]);
-        if((Code[0]=='?'||Code[0]=='0'||Code[0]=='1'||Code[0]=='2'||Code[0]=='3')&&(Code[1]==0)){
+        if((Code[0]=='?'||Code[0]=='1'||Code[0]=='2'||Code[0]=='3')&&(Code[1]==0)){
             break;
         }
         printf("输入错误, 请重新输入: ");
@@ -321,9 +281,6 @@ BEGIN:
     switch(Code[0]){
         case '?':{
             About();
-            break;
-        }case '0':{
-            Configurator(true);
             break;
         }case '1':{
             Cracker();
