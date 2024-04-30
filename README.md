@@ -68,11 +68,7 @@
 
 ## 2 软件无法在 32 位 Windows 系统中使用.
 
-可以克隆软件仓库, 使用 MinGW 编译源代码文件. 编译命令如下:
-````Cmd
-g++ main.cpp -fexec-charset=GBK -std=gnu++11 -Wall -Wextra -g -lm -static -Ofast -Os -o main.exe
-````
-编译完毕后, 运行生成的`main.exe`, 正常使用即可.
+软件暂无计划发布 32 位版本. 如有需要, 请使用 MinGW 自行编译.
 
 ## 3 破解后一些软件运行时提示 "找不到文件" 之类的错误, 而运行的软件并没有损坏.
 
