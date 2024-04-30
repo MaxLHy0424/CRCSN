@@ -3,7 +3,7 @@ void About(){
     puts("| 关于 |\n");
     puts("   [软件名称] Computer Room Controlling Software Nemesis");
     puts("   [项目作者] MaxLHy0424");
-    puts("   [软件版本] v5.0.0_Beta1");
+    puts("   [软件版本] v5.0.0-beta1");
     puts("   [项目仓库] https://github.com/MaxLHy0424/CRCSN\n");
     printf("   [系统内核] NT %.1lf\n\n",KernalVersion()/10.0);
     puts("   (C) 2023- MaxLHy0424, 保留所有权利.\n");
