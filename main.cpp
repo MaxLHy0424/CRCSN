@@ -3,7 +3,7 @@ void About(){
     puts("| 关于 |\n");
     puts("   [软件名称] Computer Room Controlling Software Nemesis");
     puts("   [项目作者] MaxLHy0424");
-    puts("   [软件版本] v5.0.0");
+    puts("   [软件版本] v5.0.0_Beta1");
     puts("   [项目仓库] https://github.com/MaxLHy0424/CRCSN\n");
     printf("   [系统内核] NT %.1lf\n\n",KernalVersion()/10.0);
     puts("   (C) 2023- MaxLHy0424, 保留所有权利.\n");
@@ -256,13 +256,31 @@ BEGIN:
     system("Cls");
     goto BEGIN;
 }
-int main(int argc,char** argv[]){
+int main(int argc,char* argv[]){
     if(IsUserAnAdmin()){
         system("Title [增强会话] CRCSN");
     }else{
         system("Title [基本会话] CRCSN");
     }
     system("Color 9");
+    if(argc==1){
+        goto BEGIN;
+    }
+    for(int i{0};i<argc;++i){
+        std::string tmp{argv[i]};
+        if(tmp.substr(0,7)=="-color="){
+            tmp.erase(0,7);
+            tmp="Color "+tmp;
+            system(tmp.c_str());
+        }else if(tmp=="-beta"){
+            std::thread(ForceShow).detach();
+        }else if(i!=0){
+            puts("参数错误, 即将退出软件.");
+            Sleep(5000UL);
+            return 0;
+        }
+    }
+    system("CLS");
 BEGIN:
     puts("| 主页 |\n");
     puts("   [?] 关于");

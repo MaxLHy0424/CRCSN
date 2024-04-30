@@ -6,7 +6,10 @@
             "type":"cppdbg",
             "request":"launch",
             "program":"${fileDirname}\\bin\\${fileBasenameNoExtension}.exe",
-            "args":[],
+            "args":[
+                "-color=09",
+                "-beta"
+            ],
             "stopAtEntry":false,
             "cwd":"${fileDirname}",
             "environment":[],
