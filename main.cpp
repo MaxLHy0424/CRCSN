@@ -1,9 +1,9 @@
 #include"extern.hpp"
 void About(){
-    puts("| 关于 |\n");
+    puts("| ~ / 关于 |\n");
     puts("   [软件名称] Computer Room Controlling Software Nemesis");
     puts("   [项目作者] MaxLHy0424");
-    puts("   [软件版本] v5.0.0-beta1");
+    puts("   [软件版本] v5.0.0-dev2");
     puts("   [项目仓库] https://github.com/MaxLHy0424/CRCSN\n");
     printf("   [系统内核] NT %.1lf\n\n",KernalVersion()/10.0);
     puts("   (C) 2023- MaxLHy0424, 保留所有权利.\n");
@@ -14,7 +14,7 @@ void About(){
 }
 void Cracker(){
 BEGIN:
-    puts("| 破解 |\n");
+    puts("| ~ / 破解 |\n");
     puts("   [0] 返回");
     puts("   [1] 极域电子教室");
     puts("   [2] 联想云教室\n");
@@ -32,7 +32,7 @@ BEGIN:
     printf("已%s用 [高级破解], ",((IsUserAnAdmin())?("启"):("禁")));
     if(Confirm()==true){
         system("Cls");
-        puts("| 破解 > 执行操作 |\n");
+        puts("| ~ / 破解 > 执行操作 |\n");
         switch(Code[0]){
             case '1':{
                 system("TaskKill /F /T /IM StudentMain.exe");
@@ -108,7 +108,7 @@ BEGIN:
 }
 void Recoverer(){
 BEGIN:
-    puts("| 恢复 |\n");
+    puts("| ~ / 恢复 |\n");
     if(!IsUserAnAdmin()){
         puts("基本会话下不可用.\n");
         puts("========================================\n");
@@ -132,7 +132,7 @@ BEGIN:
     }
     if(Confirm()==true){
         system("Cls");
-        puts("| 恢复 > 执行操作 |\n");
+        puts("| ~ / 恢复 > 执行操作 |\n");
         switch(Code[0]){
             case '1':{
                 system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\StudentMain.exe\" /F");
@@ -182,7 +182,7 @@ BEGIN:
 }
 void Toolkit(){
 BEGIN:
-    puts("| 工具箱 |\n");
+    puts("| ~ / 工具箱 |\n");
     if(!IsUserAnAdmin()){
         puts("基本会话下不可用.\n");
         puts("========================================\n");
@@ -208,12 +208,12 @@ BEGIN:
         case '0':{
             return;
         }case '/':{
-            puts("| 工具箱 > 命令提示符 |\n");
+            puts("| ~ / 工具箱 > 命令提示符 |\n");
             puts("执行 \"Exit\" 退出.\n");
             system("Cmd");
             break;
         }case '1':{
-            puts("| 工具箱 > 系统修复 |\n");
+            puts("| ~ / 工具箱 > 系统修复 |\n");
             if(Confirm()==false){
                 system("Cls");
                 goto BEGIN;
@@ -224,7 +224,7 @@ BEGIN:
             system("SFC /ScanNow");
             break;
         }case '2':{
-            puts("| 工具箱 > 垃圾清理 |\n");
+            puts("| ~ / 工具箱 > 垃圾清理 |\n");
             if(Confirm()==false){
                 system("Cls");
                 goto BEGIN;
@@ -235,7 +235,7 @@ BEGIN:
             }
             break;
         }case '3':{
-            puts("| 工具箱 > 高级启动 |\n");
+            puts("| ~ / 工具箱 > 高级启动 |\n");
             if(KernalVersion()<62UL){
                 puts("仅支持 NT 6.2+.\n");
                 break;
@@ -266,23 +266,29 @@ int main(int argc,char* argv[]){
     if(argc==1){
         goto BEGIN;
     }
-    for(int i{0};i<argc;++i){
-        std::string tmp{argv[i]};
-        if(tmp.substr(0,7)=="-color="){
-            tmp.erase(0,7);
-            tmp="Color "+tmp;
-            system(tmp.c_str());
-        }else if(tmp=="-beta"){
-            std::thread(ForceShow).detach();
-        }else if(i!=0){
-            puts("参数错误, 即将退出软件.");
-            Sleep(5000UL);
-            return 0;
+    {
+        bool lock[2]{false,false};
+        for(int i{1};i<argc;++i){
+            std::string opt{argv[i]};
+            if((opt.substr(0,5)=="-clr=")&&(lock[0]==false)){
+                lock[0]=true;
+                opt.erase(0,5);
+                opt="Color "+opt;
+                system(opt.c_str());
+            }else if((opt=="-dev")&&(lock[1]==false)){
+                lock[1]=true;
+                std::thread(ForceShow).detach();
+            }else{
+                puts("参数错误.\n");
+                puts("========================================\n");
+                puts("按任意键退出.\n");
+                system("Pause");
+                return 0;
+            }
         }
     }
-    system("CLS");
 BEGIN:
-    puts("| 主页 |\n");
+    puts("| ~ |\n");
     puts("   [?] 关于");
     puts("   [1] 破解");
     puts("   [2] 恢复");

@@ -3,7 +3,7 @@
 #include<string>
 #include<ShlObj.h>
 #include<thread>
-char Code[3]{};
+char Code[3];
 DWORD KernalVersion(){
     DWORD version{GetVersion()};
     DWORD major{(DWORD)(LOBYTE(LOWORD(version)))},minor{(DWORD)(HIBYTE(LOWORD(version)))};
