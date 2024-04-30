@@ -256,7 +256,7 @@ BEGIN:
     system("Cls");
     goto BEGIN;
 }
-int main(){
+int main(int argc,char** argv[]){
     if(IsUserAnAdmin()){
         system("Title [增强会话] CRCSN");
     }else{

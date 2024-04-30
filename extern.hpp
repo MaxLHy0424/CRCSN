@@ -1,6 +1,6 @@
 #pragma once
 #include<stdio.h>
-#include<fstream>
+#include<string>
 #include<ShlObj.h>
 #include<thread>
 char Code[3]{};
@@ -25,10 +25,6 @@ void ForceShow(){
     DWORD ForeID{GetWindowThreadProcessId(ForeWnd,NULL)};
     DWORD CurID{GetCurrentThreadId()};
     for(;;){
-        if(CfgDt[2]!="1"){
-            SetWindowPos(GetForegroundWindow(),HWND_NOTOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);
-            return;
-        }
         AttachThreadInput(CurID,ForeID,TRUE);
         ShowWindow(ForeWnd,SW_SHOWNORMAL);
         SetWindowPos(ForeWnd,HWND_TOPMOST,0,0,0,0,SWP_NOSIZE|SWP_NOMOVE);
