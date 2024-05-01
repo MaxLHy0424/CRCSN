@@ -19,7 +19,7 @@
 找到这一行:
 
 ````Cmd
-: MsHTA Vbscript:CreateObject("Shell.Application").ShellExecute("%~S0","goto :RunAs","","RunAs",1)(Window.Close)&Goto:EOF
+: MsHta Vbscript:CreateObject("Shell.Application").ShellExecute("%~S0","goto :RunAs","","RunAs",1)(Window.Close)&Goto:EOF
 ````
 
 将开头的`: `去掉即可. 再运行 CRCSN, 将会强制以管理员权限运行. 
@@ -28,23 +28,23 @@
 
 ### 0-2 修改控制台颜色
 
-找到最后一行, 编辑`-clr=`后面的字符, 例如:
+找到最后一行, 编辑`-con=`后面的字符, 例如:
 
 ````Cmd
-.\bin\main.exe -clr=F0 其他选项
+.\bin\main.exe -con=F0 其他选项
 ````
 
 具体参数详见`Color`命令帮助.
 
-### 0-3 启用/禁用实验性功能
+### 0-3 置顶窗口
 
-找到最后一行. 如需启用实验性功能, 请在末尾加上`-dev`, 修改后见下:
+找到最后一行. 如需启用实验性功能, 请在末尾加上`-fs`, 修改后见下:
 
 ````Cmd
-.\bin\main.exe -dev 其他选项
+.\bin\main.exe -fs 其他选项
 ````
 
-如需禁用, 将`-dev`删去即可.
+如需禁用, 将`-fs`删去即可.
 
 ## 1 破解
 
