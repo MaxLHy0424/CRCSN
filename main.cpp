@@ -1,18 +1,17 @@
 #include"extern.hpp"
 void About(){
-    puts("| 关于 |\n");
+    puts("[关于]\n");
     puts("  Computer Room Control Software Nemesis");
-    puts("  \t\tv5.0.0_Dev1\n");
+    puts("\t\tv5.0.0_Dev1\n");
     puts("  https://github.com/MaxLHy0424/CRCSN");
     puts("  (C) 2024 MaxLHy0424, All Rights Reserved.\n");
-    puts("------------------------------------------------==\n");
+    puts("---------------------------------------------\n");
     system("pause");
     return;
 }
 void Crack(){
 BEGIN:
-    puts("| 破解 |\n");
-    printf("%s模式\n\n",((IsUserAnAdmin())?("增强"):("基本")));
+    puts("[破解]\n");
     puts("  0 返回");
     puts("  1 极域电子教室");
     puts("  2 联想云教室\n");
@@ -103,10 +102,10 @@ BEGIN:
 }
 void Recovery(){
 BEGIN:
-    puts("| 恢复 |\n");
+    puts("[恢复]\n");
     if(!IsUserAnAdmin()){
         puts("User 权限下不可用.\n");
-        puts("----------------------------------------\n");
+        puts("--------------------\n");
         system("pause");
         return;
     }
@@ -173,8 +172,9 @@ BEGIN:
     goto BEGIN;
 }
 void Terminal(){
-    puts("| 终端 |\n");
+    puts("[终端]\n");
     puts("执行 \"exit\" 退出.\n");
+    puts("---------------------------------------------\n");
     system("cmd");
     return;
 }
@@ -194,10 +194,10 @@ int main(int argc,char* argv[]){
                 opt[1]="1";
             }
             else{
-                puts("启动参数错误.\n");
-                puts("----------------------------------------\n");
+                puts("参数错误.\n");
+                puts("--------------------\n");
                 system("pause");
-                return 0;
+                goto BEGIN;
             }
         }
         system(opt[0].c_str());
@@ -206,7 +206,8 @@ int main(int argc,char* argv[]){
         }
     }
 BEGIN:
-    puts("| 主页 |\n");
+    system("cls");
+    puts("[主页]\n");
     puts("  ? 关于");
     puts("  1 破解");
     puts("  2 恢复");
@@ -235,6 +236,5 @@ BEGIN:
             break;
         }
     }
-    system("cls");
     goto BEGIN;
 }
