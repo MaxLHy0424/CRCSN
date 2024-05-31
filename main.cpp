@@ -1,22 +1,21 @@
 #include"extern.hpp"
-void SwInfo(){
+void About(){
     puts("| 关于 |\n");
-    puts("  [名称] Computer Room Control Software Nemesis");
-    puts("  [版本] v4.8.20");
-    puts("  [网址] https://github.com/MaxLHy0424/CRCSN\n");
-    puts("  (C) 2023- MaxLHy0424, All Rights Reserved.\n");
-    puts("==================================================\n");
-    puts("按任意键返回.\n");
+    puts("  Computer Room Control Software Nemesis");
+    puts("  \t\tv5.0.0_Dev1\n");
+    puts("  https://github.com/MaxLHy0424/CRCSN");
+    puts("  (C) 2024 MaxLHy0424, All Rights Reserved.\n");
+    puts("------------------------------------------------==\n");
     system("pause");
     return;
 }
 void Crack(){
 BEGIN:
     puts("| 破解 |\n");
-    printf("[规则] %s\n\n",((IsUserAnAdmin())?("增强"):("基本")));
-    puts("  [0] 返回");
-    puts("  [1] 极域电子教室");
-    puts("  [2] 联想云教室\n");
+    printf("%s模式\n\n",((IsUserAnAdmin())?("增强"):("基本")));
+    puts("  0 返回");
+    puts("  1 极域电子教室");
+    puts("  2 联想云教室\n");
     printf("请输入: ");
     for(;;){
         scanf("%s",&Data[0]);
@@ -29,7 +28,7 @@ BEGIN:
         return;
     }
     if(Continue()){
-        puts("\n========================================\n");
+        puts("\n----------------------------------------\n");
         switch(Data[0]){
             case '1':{
                 system("taskKill /f /im StudentMain.exe");
@@ -96,8 +95,7 @@ BEGIN:
                 break;
             }
         }
-        puts("\n========================================\n");
-        puts("按任意键返回.\n");
+        puts("\n----------------------------------------\n");
         system("pause");
     }
     system("cls");
@@ -107,15 +105,14 @@ void Recovery(){
 BEGIN:
     puts("| 恢复 |\n");
     if(!IsUserAnAdmin()){
-        puts("权限不足.\n");
-        puts("========================================\n");
-        puts("按任意键返回.\n");
+        puts("User 权限下不可用.\n");
+        puts("----------------------------------------\n");
         system("pause");
         return;
     }
-    puts("  [0] 返回");
-    puts("  [1] 极域电子教室");
-    puts("  [2] 联想云教室\n");
+    puts("  0 返回");
+    puts("  1 极域电子教室");
+    puts("  2 联想云教室\n");
     printf("请输入: ");
     for(;;){
         scanf("%s",&Data[0]);
@@ -128,7 +125,7 @@ BEGIN:
         return;
     }
     if(Continue()){
-        puts("\n========================================\n");
+        puts("\n----------------------------------------\n");
         switch(Data[0]){
             case '1':{
                 system("reg delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\StudentMain.exe\" /f");
@@ -169,84 +166,17 @@ BEGIN:
                 break;
             }
         }
-        puts("========================================\n");
-        puts("按任意键返回.\n");
+        puts("----------------------------------------\n");
         system("pause");
     }
     system("cls");
     goto BEGIN;
 }
-void Toolkit(){
-BEGIN:
-    puts("| 工具箱 |\n");
-    if(!IsUserAnAdmin()){
-        puts("权限不足.\n");
-        puts("========================================\n");
-        puts("按任意键返回.\n");
-        system("pause");
-        return;
-    }
-    puts("  [0] 返回");
-    puts("  [$] 命令提示符");
-    puts("  [1] 系统修复");
-    puts("  [2] 磁盘清理");
-    puts("  [3] 高级启动\n");
-    printf("请输入: ");
-    for(;;){
-        scanf("%s",&Data[0]);
-        if((Data[0]=='0'||Data[0]=='$'||Data[0]=='1'||Data[0]=='2'||Data[0]=='3')&&(Data[1]==0)){
-            break;
-        }
-        printf("输入错误, 请重试: ");
-    }
-    system("cls");
-    switch(Data[0]){
-        case '0':{
-            return;
-        }case '$':{
-            puts("| 工具箱 > 命令提示符 |\n");
-            puts("退出 \"exit\".\n");
-            system("cmd");
-            goto END;
-        }case '1':{
-            puts("| 工具箱 > 系统修复 |\n");
-            if(!Continue()){
-                goto END;
-            }
-            if(NtKernel>=62UL){
-                system("dism /online /cleanup-image /restoreHealth");
-            }
-            system("sfc /scanNow");
-            break;
-        }case '2':{
-            puts("| 工具箱 > 垃圾清理 |\n");
-            if(!Continue()){
-                goto END;
-            }
-            if(NtKernel>=100UL){
-                system("dism /online /set-reservedStorageState /state:disabled");
-            }
-            system("del /f /s /q %temp%");
-            break;
-        }case '3':{
-            puts("| 工具箱 > 高级启动 |\n");
-            if(NtKernel<62UL){
-                puts("Windows 8+.");
-                break;
-            }
-            if(!Continue()){
-                goto END;
-            }
-            system("shutdown /r /o /t 0");
-            break;
-        }
-    }
-    puts("\n========================================\n");
-    puts("按任意键返回.\n");
-    system("pause");
-END:
-    system("cls");
-    goto BEGIN;
+void Terminal(){
+    puts("| 终端 |\n");
+    puts("执行 \"exit\" 退出.\n");
+    system("cmd");
+    return;
 }
 int main(int argc,char* argv[]){
     system("title CRCSN");
@@ -265,8 +195,7 @@ int main(int argc,char* argv[]){
             }
             else{
                 puts("启动参数错误.\n");
-                puts("========================================\n");
-                puts("按任意键退出.\n");
+                puts("----------------------------------------\n");
                 system("pause");
                 return 0;
             }
@@ -278,22 +207,22 @@ int main(int argc,char* argv[]){
     }
 BEGIN:
     puts("| 主页 |\n");
-    puts("  [i] 信息");
-    puts("  [1] 破解");
-    puts("  [2] 恢复");
-    puts("  [3] 工具箱\n");
+    puts("  ? 关于");
+    puts("  1 破解");
+    puts("  2 恢复");
+    puts("  3 终端\n");
     printf("请输入: ");
     for(;;){
         scanf("%s",&Data[0]);
-        if((Data[0]=='i'||Data[0]=='1'||Data[0]=='2'||Data[0]=='3')&&(Data[1]==0)){
+        if((Data[0]=='?'||Data[0]=='1'||Data[0]=='2'||Data[0]=='3')&&(Data[1]==0)){
             break;
         }
         printf("输入错误, 请重试: ");
     }
     system("cls");
     switch(Data[0]){
-        case 'i':{
-            SwInfo();
+        case '?':{
+            About();
             break;
         }case '1':{
             Crack();
@@ -302,7 +231,7 @@ BEGIN:
             Recovery();
             break;
         }case '3':{
-            Toolkit();
+            Terminal();
             break;
         }
     }
