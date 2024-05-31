@@ -2,7 +2,7 @@
 **Computer Room Control Software Nemesis: 轻松破解机房控制.**\
 *©️ 2024 MaxLHy0424, 保留所有权利.*
 
-[下载最新发行版 (v4.8.20).](https://github.com/MaxLHy0424/CRCSN/releases/download/v4.8.20/CRCSN_v4-8-20_x64.7z)
+[下载最新发行版 (v4.9.0).](https://github.com/MaxLHy0424/CRCSN/releases/download/v4.9.0/CRCSN_v4-9-0_x64.7z)
 
 # 使用方式
 
