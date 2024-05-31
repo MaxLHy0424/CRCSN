@@ -2,6 +2,8 @@
 #include<string>
 #include<ShlObj.h>
 #include<thread>
+#define Pause system("Pause")
+#define Clear system("CLS")
 char Data[3]{};
 bool Continue(){
     printf("是否继续? (Y/N): ");
@@ -36,7 +38,7 @@ void About(){
     puts("  https://github.com/MaxLHy0424/CRCSN");
     puts("  (C) 2024 MaxLHy0424, All Rights Reserved.\n");
     puts("---------------------------------------------\n");
-    system("Pause");
+    Pause;
     return;
 }
 void Crack(){
@@ -125,9 +127,9 @@ BEGIN:
             }
         }
         puts("\n----------------------------------------\n");
-        system("Pause");
+        Pause;
     }
-    system("CLS");
+    Clear;
     goto BEGIN;
 }
 void Recovery(){
@@ -136,7 +138,7 @@ BEGIN:
     if(!IsUserAnAdmin()){
         puts("User 权限下不可用.\n");
         puts("--------------------\n");
-        system("Pause");
+        Pause;
         return;
     }
     puts("  0 返回");
@@ -196,9 +198,9 @@ BEGIN:
             }
         }
         puts("----------------------------------------\n");
-        system("Pause");
+        Pause;
     }
-    system("CLS");
+    Clear;
     goto BEGIN;
 }
 void Terminal(){
@@ -226,7 +228,7 @@ int main(int argc,char* argv[]){
             else{
                 puts("参数错误.\n");
                 puts("--------------------\n");
-                system("Pause");
+                Pause;
                 goto BEGIN;
             }
         }
@@ -236,7 +238,7 @@ int main(int argc,char* argv[]){
         }
     }
 BEGIN:
-    system("CLS");
+    Clear;
     puts("[主页]\n");
     puts("  ? 关于");
     puts("  1 破解");
@@ -250,7 +252,7 @@ BEGIN:
         }
         printf("输入错误, 请重试: ");
     }
-    system("CLS");
+    Clear;
     switch(Data[0]){
         case '?':{
             About();
