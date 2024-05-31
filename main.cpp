@@ -1,6 +1,6 @@
 #include"extern.hpp"
-void About(){
-    puts("[关于]\n");
+void Info(){
+    puts("[信息]\n");
     puts("  Computer Room Control Software Nemesis");
     puts("\t\tv4.9.0\n");
     puts("  https://github.com/MaxLHy0424/CRCSN");
@@ -223,7 +223,7 @@ BEGIN:
     Clear;
     switch(Data[0]){
         case '?':{
-            About();
+            Info();
             break;
         }case '1':{
             Crack();
