@@ -2,7 +2,6 @@
 #include<string>
 #include<ShlObj.h>
 #include<thread>
-#define NtKernel (((DWORD)(LOBYTE(LOWORD(GetVersion()))))*10UL+((DWORD)(HIBYTE(LOWORD(GetVersion())))))
 char Data[3]{};
 void ForceShow(){
     HWND ForeWnd{GetForegroundWindow()};
