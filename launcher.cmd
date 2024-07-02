@@ -1,13 +1,15 @@
-@Echo Off
-Title CRCSN Launcher
-CD /D "%~DP0"
+@echo off
+title CRCSN Launcher
+set bin = "msvcrt64"
+set branch = "dev"
+cd /d "%~dp0"
 %1
-Echo          CRCSN Launcher v1.3.9
-Echo.
-Echo (C) 2024 MaxLHy0424, All Rights Reserved.
-TimeOut /NoBreak /T 2
-: MSHTA VBScript:CreateObject("Shell.Application").ShellExecute("%~S0","GoTo:RunAs","","RunAs",1)(Window.Close) & GoTo:EOF
+mode con cols=50 lines=30
+echo              CRCSN Launcher
+echo                  24w28b
+echo (C) 2024 MaxLHy0424, All Rights Reserved.
+timeOut /noBreak /t 2
+: msHta vbScript:createObject("shell.application").shellExecute("%~s0","goTo:runAs","","runAs",1)(window.close) & goTo:EOF
 :RunAs
-  CLS
-  .\bin\main.exe
-GoTo RunAs
+  cls
+  .\bin\%branch%_%bin%.exe

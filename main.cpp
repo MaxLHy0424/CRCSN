@@ -1,250 +1,68 @@
-#include"extern.hpp"
-void Info(){
-    puts("[信息]\n");
-    puts("  Computer Room Control Software Nemesis");
-    puts("               v4.10.7\n");
-    puts("  https://github.com/MaxLHy0424/CRCSN");
-    puts("  (C) 2024 MaxLHy0424, All Rights Reserved.\n");
-    puts("---------------------------------------------\n");
-    printf("按任意键返回.");
-    system("Pause>NUL");
-    return;
-}
-void Crack(){
-BEGIN:
-    puts("[破解]\n");
-    puts("  - 返回");
-    puts("  1 极域电子教室");
-    puts("  2 联想云教室\n");
-    printf("请输入: ");
-    for(;;){
-        scanf("%s",&Dat[0]);
-        if((Dat[1]==0)&&(Dat[0]=='-'||Dat[0]=='1'||Dat[0]=='2')){
-            break;
-        }
-        printf("输入错误, 请重试: ");
-    }
-    if(Dat[0]=='-'){
-        return;
-    }
-    if(Continue()){
-        puts("\n-----------------------------------\n");
-        switch(Dat[0]){
-            case '1':{
-                system("TaskKill /F /IM StudentMain.exe");
-                system("TaskKill /F /IM DispcapHelper.exe");
-                system("TaskKill /F /IM InstHelpApp.exe");
-                system("TaskKill /F /IM GATESRV.exe");
-                system("TaskKill /F /IM ProcHelper64.exe");
-                system("TaskKill /F /IM MasterHelper.exe");
-                if(IsUserAnAdmin()){
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\StudentMain.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DispcapHelper.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\VRCwPlayer.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\InstHelpApp.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\InstHelpApp64.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\TDOvrSet.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\GATESRV.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ProcHelper64.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\MasterHelper.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Net Stop STUDSRV /Y");
-                    system("Net Stop TDNetFilter /Y");
-                    system("Net Stop TDFileFilter /Y");
-                }
-                break;
-            }case '2':{
-                system("TaskKill /F /IM vncviewer.exe");
-                system("TaskKill /F /IM tvnserver32.exe");
-                system("TaskKill /F /IM WfbsPnpInstall.exe");
-                system("TaskKill /F /IM WFBSMon.exe");
-                system("TaskKill /F /IM WFBSMlogon.exe");
-                system("TaskKill /F /IM WFBSSvrLogShow.exe");
-                system("TaskKill /F /IM ResetIp.exe");
-                system("TaskKill /F /IM Fireware.exe");
-                system("TaskKill /F /IM BCDBootCopy.exe");
-                system("TaskKill /F /IM refreship.exe");
-                system("TaskKill /F /IM LenovoLockScreen.exe");
-                system("TaskKill /F /IM PortControl64.exe");
-                system("TaskKill /F /IM DesktopCheck.exe");
-                system("TaskKill /F /IM DeploymentManager.exe");
-                system("TaskKill /F /IM DeploymentAgent.exe");
-                system("TaskKill /F /IM XYNTService.exe");
-                if(IsUserAnAdmin()){
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\vncviewer.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\tvnserver32.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WfbsPnpInstall.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WFBSMon.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WFBSMlogon.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WFBSSvrLogShow.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ResetIp.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\FuncForWIN64.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\CertMgr.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\Fireware.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\BCDBootCopy.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\refreship.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\LenovoLockScreen.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\PortControl64.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DesktopCheck.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DeploymentManager.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DeploymentAgent.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Reg Add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\XYNTService.exe\" /F /T REG_SZ /V debugger /D ?");
-                    system("Net Stop BSAgentSvr /Y");
-                    system("Net Stop tvnserver /Y");
-                    system("Net Stop WFBSMlogon /Y");
-                }
-                break;
-            }
-        }
-        puts("\n-----------------------------------\n");
-        printf("按任意键返回.");
-        system("Pause>NUL");
-    }
-    system("CLS");
-    goto BEGIN;
-}
-void Recovery(){
-BEGIN:
-    puts("[恢复]\n");
-    if(!IsUserAnAdmin()){
-        puts("请以管理员权限运行.\n");
-        puts("--------------------\n");
-        printf("按任意键返回.");
-        system("Pause>NUL");
-        return;
-    }
-    puts("  - 返回");
-    puts("  1 极域电子教室");
-    puts("  2 联想云教室\n");
-    printf("请输入: ");
-    for(;;){
-        scanf("%s",&Dat[0]);
-        if((Dat[1]==0)&&(Dat[0]=='-'||Dat[0]=='1'||Dat[0]=='2')){
-            break;
-        }
-        printf("输入错误, 请重试: ");
-    }
-    if(Dat[0]=='-'){
-        return;
-    }
-    if(Continue()){
-        puts("\n-----------------------------------\n");
-        switch(Dat[0]){
-            case '1':{
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\StudentMain.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DispcapHelper.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\VRCwPlayer.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\InstHelpApp.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\InstHelpApp64.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\TDOvrSet.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\GATESRV.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ProcHelper64.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\MasterHelper.exe\" /F");
-                system("Net Start STUDSRV");
-                system("Net Start TDNetFilter");
-                system("Net Start TDFileFilter");
-                break;
-            }case '2':{
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\vncviewer.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\tvnserver32.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WfbsPnpInstall.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WFBSMon.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WFBSMlogon.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\WFBSSvrLogShow.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\ResetIp.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\FuncForWIN64.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\CertMgr.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\Fireware.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\BCDBootCopy.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\refreship.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\LenovoLockScreen.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\PortControl64.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DesktopCheck.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DeploymentManager.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\DeploymentAgent.exe\" /F");
-                system("Reg Delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\XYNTService.exe\" /F");
-                system("Net Start BSAgentSvr");
-                system("Net Start tvnserver");
-                system("Net Start WFBSMlogon");
-                break;
-            }
-        }
-        puts("------------------------------------\n");
-        printf("按任意键返回.");
-        system("Pause>NUL");
-    }
-    system("CLS");
-    goto BEGIN;
-}
-void Tools(){
-    puts("[工具]\n");
-    puts("正在开发.\n");
-    puts("---------------\n");
-    printf("按任意键返回.");
-    system("Pause>NUL");
-    return;
-}
+#include"head.hpp"
+#include"ui.hpp"
+Menu Activity;
+#include"module.hpp"
 int main(int argc,char* argv[]){
-    system("Title CRCSN");
-    if(argc==1){
-        goto BEGIN;
-    }
+    bool errArgv{};
     {
         struct Options{
-            std::string color;
-            bool wndPin;
+            bool wndControls,wndAlpha,wndPin;
         }Opt{};
-        std::string tmp{};
+        if(argc==1){
+            goto BEGIN;
+        }
         for(int i{1};i<argc;++i){
-            tmp=argv[i];
-            if((Opt.color=="")&&(tmp.substr(0,7)=="-color=")&&(tmp.length()>7)){
-                tmp.erase(0,7);
-                Opt.color="Color "+tmp;
-            }else if((Opt.wndPin==false)&&(tmp=="-Wp")){
-                Opt.wndPin=true;
-            }
-            else{
-                puts("启动参数错误.\n");
-                puts("---------------\n");
-                printf("按任意键继续.");
-                system("Pause>NUL");
+            std::string tmp{argv[i]};
+            if((tmp.length()>2)&&(tmp.substr(0,2)=="-W")){
+                for(unsigned long long j{2};j<tmp.length();++j){
+                    switch(tmp[j]){
+                        case 'c':{
+                            Opt.wndControls=true;
+                            break;
+                        }case 'a':{
+                            Opt.wndAlpha=true;
+                            break;
+                        }case 'p':{
+                            Opt.wndPin=true;
+                            break;
+                        }default:{
+                            Opt={};
+                            errArgv=true;
+                        }
+                    }
+                }
+            }else{
+                errArgv=true;
                 goto BEGIN;
             }
         }
-        system(Opt.color.c_str());
-        if(Opt.wndPin==true){
-            std::thread(PinWnd).detach();
-        }
-    }
 BEGIN:
-    system("CLS");
-    puts("[首页]\n");
-    puts("  ? 信息");
-    puts("  1 破解");
-    puts("  2 恢复");
-    puts("  3 工具\n");
-    printf("请输入: ");
-    for(;;){
-        scanf("%s",&Dat[0]);
-        if((Dat[1]==0)&&(Dat[0]=='?'||Dat[0]=='1'||Dat[0]=='2'||Dat[0]=='3')){
-            break;
-        }
-        printf("输入错误, 请重试: ");
-    }
-    system("CLS");
-    switch(Dat[0]){
-        case '?':{
-            Info();
-            break;
-        }case '1':{
-            Crack();
-            break;
-        }case '2':{
-            Recovery();
-            break;
-        }case '3':{
-            Tools();
-            break;
+        CRCSN::Wnd::Init(Opt.wndControls,Opt.wndAlpha);
+        if(Opt.wndPin==true){
+            std::thread(CRCSN::Wnd::Pin).detach();
         }
     }
-    goto BEGIN;
+    system("cls");
+    Activity.PushBack("   | Computer Room Control Software Nemesis |");
+    Activity.PushBack("                    24w28b");
+    Activity.PushBack("     https://github.com/MaxLHy0424/CRCSN");
+    Activity.PushBack("    (C) 2024 MaxLHy0424, All Rights Reserved.\n");
+    if(errArgv){
+        Activity.PushBack(" (!) 启动参数错误.\n");
+    }
+    Activity.PushBack(" > 退出 ",ExitProc);
+    Activity.PushBack("\n[  破  解  ]\n");
+    Activity.PushBack(" > 极域电子教室 ",CRCSN::Crack::ELearningClass);
+    Activity.PushBack(" > 联想云教室 ",CRCSN::Crack::LenovoEClass);
+    Activity.PushBack("\n[  恢  复  ]\n");
+    if(IsUserAnAdmin()){
+        Activity.PushBack(" > 极域电子教室 ",CRCSN::Recovery::ELearningClass);
+        Activity.PushBack(" > 联想云教室 ",CRCSN::Recovery::LenovoEClass);
+    }else{
+        Activity.PushBack(" (i) 需要管理员权限.");
+    }
+    Activity.PushBack("\n[ 工 具 箱 ]\n");
+    Activity.PushBack(" (i) 正在开发.");
+    Activity.ShowMenu();
+    return 0;
 }
